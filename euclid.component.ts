@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nologig-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'nlg-euclid',
+  templateUrl: './euclid.component.html',
+  styleUrls: ['./euclid.component.scss']
 })
-export class AppComponent {
+export class EuclidComponent {
+  
   title = 'Euclid';
 
-  // Rekursive
-  euklid1(a, b) {
+  euclidRecursive(a, b) {
     if (b === 0) {
       return a;
     }
@@ -17,13 +17,12 @@ export class AppComponent {
       return b;
     }
     if (a > b) {
-      return this.euklid1(a - b, b);
+      return this.euclidRecursive(a - b, b);
     }
-    return this.euklid1(a, b - a);
+    return this.euclidRecursive(a, b - a);
   }
 
-  // Iterative
-  euklid2(a, b) {
+  euklidIterative(a, b) {
     if (a === 0) {
       return b;
     }
@@ -39,19 +38,15 @@ export class AppComponent {
     return a;
   }
 
-  // Modern Variantions
-
-  // Rekursive
-  euklid3(a, b) {
+  euclidModernRecursive(a, b) {
     if (b === 0) {
       return a;
     }
 
-    return this.euklid3(b, a % b);
+    return this.euclidModernRecursive(b, a % b);
   }
 
-  // Iterative
-  euklid4(a, b) {
+  euclidModernIterative(a, b) {
     let tmp = 0;
     while (b !== 0) {
       tmp = a % b;
